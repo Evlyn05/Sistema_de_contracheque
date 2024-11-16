@@ -1,0 +1,88 @@
+{% extends "contracheques/base.html" %}
+{% load static %}
+{% block content %}
+<div class="container-fluid w-100">
+    <div class="row pt-5 pb-5 bg-primary" style="height: 480px;">
+        <div class="d-flex flex-column align-items-center text-light">
+            <strong class="mt-4">ACESSO</strong>
+            <h1>Sistema de Contracheque</h1>
+        </div>
+    </div>
+    <div class="row justify-content-around pt-5" style="margin-top: -300px;">
+        <div class="col-md-2 sidebar rounded-2 shadow-lg">
+            <nav class="nav flex-column">
+                <a class="nav-link d-flex align-items-center justify-content-sm-start gap-2 mw-100" href="#">
+                    <img src="{% static "contracheques/img/pessoal.svg" %}" style="width: 1rem; height: 1rem;" alt="">
+                    Pessoal
+                </a>
+                <a class="nav-link active d-flex align-items-center justify-content-sm-start gap-2 mw-100" href="#">
+                    <img src="{% static "contracheques/img/contracheque.svg" %}" style="width: 1rem; height: 1rem;"
+                        alt="">
+                    Contracheques
+                </a>
+                <a class="nav-link d-flex align-items-center justify-content-sm-start gap-2 mw-100" href="#">
+                    <img src="{% static "contracheques/img/adicionar.svg" %}" style="width: 1rem; height: 1rem;"
+                        alt="">
+                    Adicionar
+                </a>
+                <a class="nav-link d-flex align-items-center justify-content-sm-start gap-2 mw-100" href="#">
+                    <img src="{% static "contracheques/img/adicionar.svg" %}" style="width: 1rem; height: 1rem;"
+                        alt="">
+                    Lixeira
+                </a>
+                <a class="nav-link d-flex align-items-center justify-content-sm-start gap-2 mw-100" href="#">
+                    <img src="{% static "contracheques/img/suporte.svg" %}" style="width: 1rem; height: 1rem;" alt="">
+                    Suporte
+                </a>
+            </nav>
+        </div>
+
+        <div class="col-md-9 content rounded-2 shadow-lg">
+            <h2 class="text-center mb-4">
+                {% if acao == "cadastrar" %}
+                    Adicione um novo Contracheque
+                {% else %}
+                    Editar informacoes do Contracheque
+                {% endif %}
+            </h2>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                <div class="mb-3">
+                    <label for="">Funcionario:</label>
+                    {{ form.nome_funcionario }}
+                    {{ form.nome_funcionario.errors }}
+                </div>
+                <div class="mb-3">
+                    <label for="">Data de Criação:</label>
+                    {{ form.data_criacao }}
+                    {{ form.data_criacao.errors }}
+                </div>
+                <div class="mb-3">
+                    <label for="">Numero da conta:</label>
+                    {{ form.conta }}
+                    {{ form.conta.errors }}
+                </div>
+                <div class="mb-3">
+                    <label for="">Numero da Agencia:</label>
+                    {{ form.agencia }}
+                    {{ form.agencia.errors }}
+                </div>
+                <div class="mb-3">
+                    {{ form.arquivo }}
+                    {{ form.arquivo.errors }}
+                </div>
+                <div class="mb-3">
+                    <label for="">Ano:</label>
+                    {{ form.ano }}
+                    {{ form.ano.errors }}
+                </div>
+                <div class="text-end">
+                    <button type="submit" class="btn btn-success">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<a href="{% url 'cadastrar-contracheques' %}">Adicionar ContraCheque</a>
+{% endblock content %}

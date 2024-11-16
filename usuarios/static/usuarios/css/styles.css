@@ -1,0 +1,25 @@
+body {
+  background-color: #f8f9fa;
+}
+a {
+  text-decoration: none;
+}
+.login-container {
+  margin-top: 100px;
+}
+.bg-primary {
+  background-color: #4169E1 !important;
+}
+.text-primary {
+  color: #4169E1 !important;
+}
+.btn-primary {
+  background-color: #4169E1 !important;  
+}
+.form-control {
+  border-radius: 20px;
+}
+.btn-primary {
+  border-radius: 20px;
+  padding: 10px 20px;
+}

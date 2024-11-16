@@ -1,0 +1,76 @@
+{% extends "contracheques/base.html" %}
+{% load static %}
+{% block content %}
+<style>
+  @media print {
+    body * {
+      visibility: hidden;
+    }
+    .content, .content * {
+      visibility: visible;
+    }
+    .content img {
+      width: 100%;
+      height: auto;
+    }
+    .sidebar {
+      display: none;
+    }
+    button {
+      display: none;
+    }
+    #remover {
+      visibility: hidden;
+      display: none;
+    }
+  }
+</style>
+
+<div class="container-fluid w-100">
+  <div class="row pt-5 pb-5 bg-primary" style="height: 480px;">
+    <div class="d-flex flex-column align-items-center text-light">
+      <strong class="mt-4">ACESSO</strong>
+      <h1>Sistema de Contracheque</h1>
+    </div>
+  </div>
+
+  <div class="row justify-content-around flex-row pt-5" style="margin-top: -300px;">
+    <div class="col-md-2 sidebar rounded-2 overflow-y-auto pb-3 pb-md-0">
+      <nav class="nav flex-column">
+        <a class="nav-link overflow-hidden d-flex align-items-center justify-content-sm-start gap-2 mw-100" href="#">
+          <img src="{% static 'contracheques/img/pessoal.svg' %}" style="width: 1rem; height: 1rem;" alt="">
+          Pessoal
+        </a>
+        <a class="nav-link overflow-hidden active d-flex align-items-center justify-content-sm-start gap-2 mw-100" href="#">
+          <img src="{% static 'contracheques/img/contracheque.svg' %}" style="width: 1rem; height: 1rem;" alt="">
+          Contracheques
+        </a>
+        <a class="nav-link overflow-hidden d-flex align-items-center justify-content-sm-start gap-2 mw-100" href="{% url 'cadastrar-contracheques' %}">
+          <img src="{% static 'contracheques/img/adicionar.svg' %}" style="width: 1rem; height: 1rem;" alt="">
+          Adicionar
+        </a>
+        <a class="nav-link overflow-hidden d-flex align-items-center justify-content-sm-start gap-2 mw-100" href="#">
+          <img src="{% static 'contracheques/img/adicionar.svg' %}" style="width: 1rem; height: 1rem;" alt="">
+          Lixeira
+        </a>
+        <a class="nav-link overflow-hidden d-flex align-items-center justify-content-sm-start gap-2 mw-100" href="#">
+          <img src="{% static 'contracheques/img/suporte.svg' %}" style="width: 1rem; height: 1rem;" alt="">
+          Suporte
+        </a>
+      </nav>
+    </div>
+
+    <div class="col-md-9 content py-3 rounded-2">
+      <div class="d-flex justify-content-between align-items-center mb-4" id="remover">
+        <h2 class="text-center">Contracheque {{ contracheque.nome_funcionario }} {{ contracheque.data_criacao }}</h2>
+        <button onclick="window.print()" class="btn btn-success">Imprimir Imagem</button>  
+      </div>
+
+      <div class="w-100 h-auto">
+        <img src="{{ contracheque.arquivo.url }}" alt="Contracheque de {{ contracheque.nome_funcionario }}" style="width: 100%;">
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

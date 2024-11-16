@@ -1,0 +1,49 @@
+{% extends "contracheques/base.html" %}
+{% load static %}
+{% block content %}
+<div class="container-fluid">
+  <div class="row pt-5 pb-5 bg-primary" style="height: 480px;">
+    <div class="d-flex flex-column align-items-center text-light">
+      <strong class="mt-4">ACESSO</strong>
+      <h1>Sistema de Contracheque</h1>
+    </div>
+  </div>
+  <div class="row justify-content-around pt-5" style="margin-top: -300px;">
+    <div class="col-md-2 sidebar rounded-2 mb-5 shadow-lg" style="height: 400px;">
+      <nav class="nav flex-column">
+        <a class="nav-link d-flex align-items-center justify-content-sm-start gap-2 mw-100" href="#">
+          <img src="{% static "contracheques/img/pessoal.svg" %}" style="width: 1rem; height: 1rem;" alt="">
+          Pessoal
+        </a>
+        <a class="nav-link active d-flex align-items-center justify-content-sm-start gap-2 mw-100" href="#">
+          <img src="{% static "contracheques/img/contracheque.svg" %}" style="width: 1rem; height: 1rem;" alt="">
+          Contracheques
+        </a>
+        <a class="nav-link d-flex align-items-center justify-content-sm-start gap-2 mw-100" href="#">
+          <img src="{% static "contracheques/img/adicionar.svg" %}" style="width: 1rem; height: 1rem;" alt="">
+          Adicionar
+        </a>
+        <a class="nav-link d-flex align-items-center justify-content-sm-start gap-2 mw-100" href="#">
+          <img src="{% static "contracheques/img/adicionar.svg" %}" style="width: 1rem; height: 1rem;" alt="">
+          Lixeira
+        </a>
+        <a class="nav-link d-flex align-items-center justify-content-sm-start gap-2 mw-100" href="#">
+          <img src="{% static "contracheques/img/suporte.svg" %}" style="width: 1rem; height: 1rem;" alt="">
+          Suporte
+        </a>
+      </nav>
+    </div>
+
+    <div class="col-md-9 content rounded-2 mb-5 shadow-lg" style="height: 400px;">
+      <h2 class="text-center mb-4">Deletar</h2>
+      <form method="post" class="d-flex flex-column">
+        {% csrf_token %}
+        <div class="">
+          <p>Deseja realemente deletar o contracheque de {{contracheque.nome_funcionario}} de {{contracheque.data_criacao}}?</p>
+          <button type="submit" class="btn btn-danger">Deletar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock content %}

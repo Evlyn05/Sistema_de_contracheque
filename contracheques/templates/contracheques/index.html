@@ -1,0 +1,133 @@
+{% extends "contracheques/base.html" %}
+{% load static %}
+{% block content %}
+<div class="container-fluid">
+    <div class="row align-items-center justify-content-center justify-content-md-around pt-5"
+        style="background-color: #4169E1;">
+        <div class="col-10 col-lg-5 col-md-12 text-white mb-5">
+            <h1 class="display-4 fw-bold">Sistema de<br class="d-none d-lg-block">Contracheque<br
+                    class="d-none d-lg-block">Online</h1>
+            <p class="lead">acesso rápido, seguro e fácil às suas<br class="d-none d-lg-block">informações financeiras.
+            </p>
+            <a href="{% url "listar-contracheques" %}" class="btn btn-light text-decoration-none fw-semibold mt-3">BUSQUE JÁ O SEU</a>
+        </div>
+        <div class="col-10 col-lg-5 col-md-12 mt-4 mt-lg-0 pb-5" style="width: auto;">
+            <img src="{% static "contracheques/img/contracheque-imagem.png" %}" alt="Contracheque no tablet" class="img-fluid rounded">
+        </div>
+    </div>
+
+
+    <div class="bottom-nav mt-4 text-center w-75 m-auto d-flex justify-content-between px-3 border rounded-1 px-4 py-4" style="background-color: #4169E1;">
+        <a href="#" class="text-white text-decoration-none fw-semibold">Portal da prefeitura</a>
+        <a href="#" class="text-white text-decoration-none fw-semibold">gov.com</a>
+        <a href="#" class="text-white text-decoration-none fw-semibold">Informações Pessoais</a>
+        <a href="{% url "listar-contracheques" %}" class="text-white text-decoration-none fw-semibold">Contracheque</a>
+        <a href="{% url "cadastrar-contracheques" %}" class="text-white text-decoration-none fw-semibold">Adicionar</a>
+    </div>
+
+    <div class="row justify-content-center bg-light gap-5 pt-5">
+        <h1 class="mb-4 ps-5 ps">Acesso Rápido</h1>
+        <div class="col-10 col-lg-5">
+            <div class="calendar">
+                <div class="calendar-header d-flex" style="gap: 12px;">
+                    <button class="btn btn-sm btn-outline-secondary">&lt;</button>
+                    <h5 class="mb-0">Agosto 2021</h5>
+                    <button class="btn btn-sm btn-outline-secondary">&gt;</button>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>DOM</th>
+                                <th>SEG</th>
+                                <th>TER</th>
+                                <th>QUA</th>
+                                <th>QUI</th>
+                                <th>SEX</th>
+                                <th>SÁB</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>4</td>
+                                <td>5</td>
+                                <td>6</td>
+                                <td>7</td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td>9</td>
+                                <td>10</td>
+                                <td>11</td>
+                                <td>12</td>
+                                <td>13</td>
+                                <td>14</td>
+                            </tr>
+                            <tr>
+                                <td>15</td>
+                                <td>16</td>
+                                <td>17</td>
+                                <td>18</td>
+                                <td>19</td>
+                                <td>20</td>
+                                <td>21</td>
+                            </tr>
+                            <tr>
+                                <td>22</td>
+                                <td>23</td>
+                                <td>24</td>
+                                <td>25</td>
+                                <td>26</td>
+                                <td>27</td>
+                                <td>28</td>
+                            </tr>
+                            <tr>
+                                <td>29</td>
+                                <td>30</td>
+                                <td>31</td>
+                                <td class="text-muted">1</td>
+                                <td class="text-muted">2</td>
+                                <td class="text-muted">3</td>
+                                <td class="text-muted">4</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-10 col-lg-3 mt-4 bg-primary d-flex align-items-center">
+            <div class="quick-links d-flex flex-column justify-content-center">
+                <a href="#" class="text-decoration-none text-white fw-semibold">Clique para ver a <br>LEGISLAÇÃO</a>
+                <a href="#" class="text-decoration-none text-white fw-semibold">Clique para ver as <br>LICITAÇÕES</a>
+                <a href="#" class="text-decoration-none text-white fw-semibold">Clique para ver as <br>DATAS DE PAGAMENTOS</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="bottom-nav mt-4 text-center w-75 m-auto d-flex justify-content-between px-3 border rounded-1 p-4" style="background-color: #4169E1;">
+        <a href="#" class="text-white text-decoration-none fw-semibold">Atualizações</a>
+        <a href="#" class="text-white text-decoration-none fw-semibold">SUS</a>
+        <a href="#" class="text-white text-decoration-none fw-semibold">Notícias</a>
+        <a href="#" class="text-white text-decoration-none fw-semibold">Denúncias</a>
+    </div>
+
+    <div class="row pt-5">
+        <div class="col-md-6 d-flex justify-content-center">
+            <img src="{% static 'contracheques/img/contracheque-ilustracao.png' %}" alt="Sistema de Contracheque"
+                class="img-fluid w-75">
+        </div>
+        <div class="col-md-6 bg-primary text-white p-4 d-flex align-items-center">
+            <blockquote class="blockquote">
+                <p class="mb-0 fw-semibold">
+                    "Um sistema de contracheque online simplifica o acesso seguro e ágil às suas informações
+                    financeiras, garantindo transparência, comodidade e controle para os profissionais acompanharem seus
+                    ganhos e benefícios em qualquer lugar."
+                </p>
+            </blockquote>
+        </div>
+    </div>
+</div>
+{% endblock content %}
